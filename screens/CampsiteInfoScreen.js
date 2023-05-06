@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
-import {
-    FlatList,
-    StyleSheet,
-    Text,
-    View,
-    Button as RNButton,
-    Modal,
-} from 'react-native';
+import { FlatList, StyleSheet, Text, View, Button, Modal } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import RenderCampsite from '../features/campsites/RenderCampsite';
 import { toggleFavorite } from '../features/favorites/favoritesSlice';
 import { Rating, Input } from 'react-native-elements';
 import { FontAwesome } from '@expo/vector-icons';
 import { postComment } from '../features/comments/commentsSlice';
-import { addComment } from '../features/comments/commentsSlice';
 
 const CampsiteInfoScreen = ({ route }) => {
     const { campsite } = route.params;
@@ -118,7 +110,7 @@ const CampsiteInfoScreen = ({ route }) => {
                         value={text}
                     />
                     <View style={{ margin: 10 }}>
-                        <RNButton
+                        <Button
                             onPress={() => {
                                 handleSubmit();
                                 resetForm();
@@ -128,7 +120,7 @@ const CampsiteInfoScreen = ({ route }) => {
                         />
                     </View>
                     <View style={{ margin: 10 }}>
-                        <RNButton
+                        <Button
                             onPress={() => {
                                 setShowModal(!showModal);
                                 resetForm();
